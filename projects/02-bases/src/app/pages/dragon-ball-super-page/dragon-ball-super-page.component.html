@@ -1,0 +1,16 @@
+
+
+<h1 class="text-4xl">Dragon Ball</h1>
+<hr>
+<section class="flex flex-col md:flex-row gap-5 md:gap-10 xl:gap-15 mt-4">
+  <div class="flex-1 mt-3">
+    <db-add-character
+      listName="Agregar a:"
+      (newCharacter)="dbService.addCharacter($event)" />
+  </div>
+  <div class="flex-1 mt-3">
+    <db-list-character
+      listName="Lista de personajes"
+      [characters]="dbService.characters()" />
+  </div>
+</section>

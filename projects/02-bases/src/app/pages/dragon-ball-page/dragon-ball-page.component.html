@@ -1,0 +1,59 @@
+
+
+<h1 class="text-4xl">Dragon Ball</h1>
+<hr>
+<section class="flex flex-col md:flex-row gap-5 md:gap-10 xl:gap-15 mt-4">
+  <div class="flex-1 mt-3">
+    <h3 class="text-3xl">
+      <span class="underline">Agregar a:</span>
+      {{name()}}
+    </h3>
+    <input
+      [value]="name()"
+      (input)="name.set(textName.value)"
+      #textName
+      type="text"
+      class="p-2 mt-4 text-gray-200 placeholder:text-gray-400 w-full border-2 border-gray-600 rounded-xl"
+      placeholder="Nombre persoanje">
+    <input
+      [value]="power()"
+      (input)="power.set(+numPower.value)"
+      #numPower
+      type="text"
+      class="p-2 mt-2 text-gray-200 placeholder:text-gray-400 w-full border-2 border-gray-600 rounded-xl"
+      placeholder="Poder">
+    <div class="flex justify-end">
+      <button
+        (click)="addCharacter()"
+        class="btn btn-outline btn-primaruy text-base mt-3 rounded-xl">
+        Agregar
+      </button>
+    </div>
+  </div>
+  <div class="flex-1 mt-3">
+    <h3 class="text-3xl underline">Listado Personajes</h3>
+    <ul class="list bg-base-100 rounded-box shadow-md">
+      @for(character of characters(); track character.id) {
+        <li class="list-row grid-cols-none">
+          <div class="flex justify-between items-baseline">
+            <div class="flex justify-start items-baseline">
+              <span class="text-xl font-light me-1">{{character.id}}.</span>
+              <h2 class="text-2xl me-2">{{ character.name}}</h2>
+            </div>
+            <div>
+              <span class="text-lg font-semibold opacity-60 me-1">Poder:</span>
+              <strong
+                [class.text-green-300]="character.power >= 10000"
+                [class.text-blue-300]="character.power > 4999 && character.power < 9999"
+                [class.text-red-300]="character.power < 4999"
+                [class.text-red-500]="character.power < 1000"
+                class="text-3xl text-red">
+                {{character.power}}
+              </strong>
+            </div>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

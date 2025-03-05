@@ -1,0 +1,29 @@
+
+
+
+
+<h3 class="text-3xl">
+  <span class="underline">{{listName()}}</span>
+  {{name()}}
+</h3>
+<input
+  [value]="name()"
+  (input)="name.set(textName.value)"
+  #textName
+  type="text"
+  class="p-2 mt-4 text-gray-200 placeholder:text-gray-400 w-full border-2 border-gray-600 rounded-xl"
+  placeholder="Nombre persoanje">
+<input
+  [value]="power()"
+  (input)="power.set(+numPower.value)"
+  #numPower
+  type="text"
+  class="p-2 mt-2 text-gray-200 placeholder:text-gray-400 w-full border-2 border-gray-600 rounded-xl"
+  placeholder="Poder">
+<div class="flex justify-end">
+  <button
+    (click)="addCharacter()"
+    class="btn btn-outline btn-primaruy text-base mt-3 rounded-xl">
+    Agregar
+  </button>
+</div>

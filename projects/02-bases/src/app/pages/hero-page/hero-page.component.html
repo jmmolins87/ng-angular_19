@@ -1,0 +1,47 @@
+
+
+
+<h1 class="text-5xl">{{ name() }}</h1>
+
+<dl class="mt-5">
+  <div class="mt-3">
+    <td>Nombre:</td>
+    <dd class="text-3xl">{{ name() }}</dd>
+  </div>
+
+  <div class="mt-3">
+    <td>Edad:</td>
+    <dd class="text-3xl">{{ age() }}</dd>
+  </div>
+
+  <div class="mt-3">
+    <td>Método:</td>
+    <!-- <dd class="text-3xl">{{ getHeroDescription() }}</dd> -->
+    <dd class="text-3xl">{{ heroDescription() }}</dd>
+  </div>
+
+  <div class="mt-3">
+    <td>Capitalizado:</td>
+    <!-- ! Intentar  -->
+    <!-- <dd class="text-3xl"> {{ heroDescription() | uppercase }} </dd> -->
+    <dd class="text-3xl"> {{ capitalizeName() }} </dd>
+  </div>
+</dl>
+
+<hr class="my-5">
+
+<button
+  (click)="changeHero()"
+  class="btn btn-outline btn-primary">
+  Cambiar nombre
+</button>
+<button
+  (click)="chageAge()"
+  class="btn btn-outline btn-primary mx-2">
+  Cambiar edad
+</button>
+<button
+  (click)="resetForm()"
+  class="btn btn-outline btn-primary">
+  Reset
+</button>
