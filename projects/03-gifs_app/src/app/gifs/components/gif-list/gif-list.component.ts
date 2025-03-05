@@ -2,6 +2,8 @@ import { Component, input } from '@angular/core';
 
 import { GifLsitItemComponent } from './gif-lsit-item/gif-lsit-item.component';
 
+import { Gif } from '../../interfaces/gif.interface';
+
 
 @Component({
   selector: 'gif-list',
@@ -10,5 +12,5 @@ import { GifLsitItemComponent } from './gif-lsit-item/gif-lsit-item.component';
 })
 export class GifListComponent {
 
-  gifsUrls = input.required<string[]>();
+  gifsUrls = input.required<Gif[]>();
 }

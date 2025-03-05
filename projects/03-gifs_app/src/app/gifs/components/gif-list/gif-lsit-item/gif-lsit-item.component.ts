@@ -1,5 +1,8 @@
 import { Component, input } from '@angular/core';
 
+import { Gif } from '../../../interfaces/gif.interface';
+
+
 @Component({
   selector: 'gif-lsit-item',
   imports: [],
@@ -7,6 +10,6 @@ import { Component, input } from '@angular/core';
 })
 export class GifLsitItemComponent {
 
-  gif = input<string>('');
+  gif = input<string>();
 }
 

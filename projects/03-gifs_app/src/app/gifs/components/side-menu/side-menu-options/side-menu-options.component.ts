@@ -1,5 +1,11 @@
-import { Component, signal } from '@angular/core';
+import {
+  Component,
+  inject,
+  signal
+} from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+
+import { GifsService } from '../../../services/gifs.service';
 
 import { MenuOptions } from '../../../interfaces/menu-options.interface';
 
@@ -9,7 +15,7 @@ import { MenuOptions } from '../../../interfaces/menu-options.interface';
   imports: [RouterLink, RouterLinkActive],
   templateUrl: './side-menu-options.component.html',
 })
-export class SideMenuOptionsComponent { 
+export class SideMenuOptionsComponent {
 
   menuOptions = signal<MenuOptions[]>([
     {
@@ -25,4 +31,6 @@ export class SideMenuOptionsComponent {
       route: '/dashboard/search'
     }
   ])
+
+  gifsService = inject(GifsService);
 }

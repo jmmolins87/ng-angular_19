@@ -2,8 +2,8 @@
 
 
 
-<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 me-4">
+<section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 me-4">
   @for(url of gifsUrls(); track url) {
-    <gif-lsit-item [gif]="url" />
+    <gif-lsit-item [gif]="url.url" />
   }
-</div>
+</section>
