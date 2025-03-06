@@ -7,6 +7,8 @@
   <h3 class="text-sm text-gray-500">Buscar por nombre, descripción o tag</h3>
   <input
     (keyup.enter)="searchGif(txtSearch.value)"
+    (input)="searchInput.set(txtSearch.value)"
+    [value]="searchInput()"
     #txtSearch
     type="text"
     placeholder="Buscar Gif"
