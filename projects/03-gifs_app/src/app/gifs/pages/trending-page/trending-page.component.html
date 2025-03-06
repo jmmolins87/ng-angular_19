@@ -1,5 +1,22 @@
 
 
-<section class="px-4 my-4">
-  <gif-list [gifsUrls]="gifsService.trendingGifs()" />
+
+
+<section
+  (scroll)="onScroll($event)"
+  #groupDiv
+  class="h-screen overflow-y-scroll grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+  @for(group of gifsService.trendingGifsGroup(); track $index) {
+    <div class="grid gap-4">
+      @for(gif of group; track gif.id) {
+        <div>
+          <img
+            [src]="gif.url"
+            [alt]="gif.title"
+            [title]="gif.title"
+            class="h-full w-full rounded-lg object-cover" />
+        </div>
+      }
+    </div>
+  }
 </section>
