@@ -7,5 +7,5 @@ import { Component, signal } from '@angular/core';
 })
 export class FooterComponent {
 
-  date = signal(new Date().getFullYear())
+  date = signal(new Date().getFullYear());
 }

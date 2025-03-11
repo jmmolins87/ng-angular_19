@@ -1,8 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { DecimalPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
+
+import { Country } from '../../interfaces/country.interface';
+
 
 @Component({
   selector: 'country-list',
-  imports: [],
+  imports: [RouterLink, DecimalPipe],
   templateUrl: './list.component.html',
 })
-export class ListComponent { }
+export class ListComponent {
+
+  countries = input.required<Country[]>();
+  errorMsg = input<string | unknown | null>();
+  isLoading = input<boolean>(false);
+  isEmpty = input<boolean>(false);
+}

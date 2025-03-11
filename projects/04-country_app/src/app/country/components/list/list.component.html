@@ -15,17 +15,47 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th>#</th>
-        <th>code</th>
-        <th>Bandera</th>
-        <th>Nombre</th>
-        <th>Capital</th>
-        <th>Población</th>
-        <th>
-          <a href="" class="link link-primary link-hover">Más información</a>
-        </th>
-      </tr>
+      @for(country of countries(); track country; let index = $index) {
+        <tr>
+          <td>{{index + 1}}</td>
+          <td>{{country.flag}}</td>
+          <td>
+            <img
+              [src]="country.flagSvg"
+              [alt]="country.name"
+              [title]="country.name"
+              class="w-14" >
+          </td>
+          <td>{{country.name}}</td>
+          <td>{{country.capital}}</td>
+          <td>
+            <span class="badge badge-primary">{{country.population | number}}</span>
+          </td>
+          <td>
+            <a [routerLink]="['/country/by', country.cca2]" class="link link-hover link-primary">Más Información</a>
+          </td>
+        </tr>
+      }
+      @if(errorMsg()) {
+        <tr>
+          <td [innerHTML]="errorMsg()" colspan="8" class="text-center mt-8">
+          </td>
+        </tr>
+      }
+      @if(countries().length === 0 && !isLoading()) {
+        <tr>
+          <td colspan="8" class="text-center mt-8">
+            No se encontraron resultados
+          </td>
+        </tr>
+      }
+      @if(isLoading()) {
+        <tr>
+          <td colspan="8" class="text-center mt-8">
+            Buscando...
+          </td>
+        </tr>
+      }
     </tbody>
   </table>
 </section>
