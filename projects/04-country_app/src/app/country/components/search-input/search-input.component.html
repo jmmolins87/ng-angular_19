@@ -4,7 +4,7 @@
   <input
     type="text"
     (keyup.enter)="onSearch(txtInput.value)"
-    (input)="inputField.set(txtInput.value)"
+    (keyup)="onSearch(txtInput.value)"
     [value]="inputField()"
     #txtInput
     autofocus
