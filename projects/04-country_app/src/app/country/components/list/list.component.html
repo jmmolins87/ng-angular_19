@@ -17,8 +17,8 @@
     <tbody>
       @for(country of countries(); track country; let index = $index) {
         <tr>
-          <td>{{index + 1}}</td>
-          <td>{{country.flag}}</td>
+          <td>{{ index + 1 }}</td>
+          <td>{{ country.flag }}</td>
           <td>
             <img
               [src]="country.flagSvg"
@@ -26,10 +26,10 @@
               [title]="country.name"
               class="w-14" >
           </td>
-          <td>{{country.name}}</td>
-          <td>{{country.capital}}</td>
+          <td>{{ country.name }}</td>
+          <td>{{ country.capital }}</td>
           <td>
-            <span class="badge badge-primary">{{country.population | number}}</span>
+            <span class="badge badge-primary">{{ country.population | number }}</span>
           </td>
           <td>
             <a [routerLink]="['/country/by', country.cca2]" class="link link-hover link-primary">Más Información</a>

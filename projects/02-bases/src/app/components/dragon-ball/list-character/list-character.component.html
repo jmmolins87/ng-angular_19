@@ -1,14 +1,14 @@
 
 
 
-<h3 class="text-3xl underline">{{listName()}}</h3>
+<h3 class="text-3xl underline">{{ listName() }}</h3>
 <ul class="list bg-base-100 rounded-box shadow-md">
   @for(character of characters(); track character.id) {
   <li class="list-row grid-cols-none">
     <div class="flex justify-between items-baseline">
       <div class="flex justify-start items-baseline">
-        <span class="text-xl font-light me-1">{{character.id}}.</span>
-        <h2 class="text-2xl me-2">{{ character.name}}</h2>
+        <span class="text-xl font-light me-1">{{ character.id }}.</span>
+        <h2 class="text-2xl me-2">{{  character.name }}</h2>
       </div>
       <div>
         <span class="text-lg font-semibold opacity-60 me-1">Poder:</span>
@@ -16,7 +16,7 @@
           [class.text-blue-300]="character.power > 4999 && character.power < 9999"
           [class.text-red-300]="character.power < 4999" [class.text-red-500]="character.power < 1000"
           class="text-3xl text-red">
-          {{character.power}}
+          {{ character.power }}
         </strong>
       </div>
     </div>

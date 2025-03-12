@@ -8,7 +8,7 @@
 
 <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-3">
   <app-card title="i18nSelectPipe">
-    <p>Saludos {{client().name}}, es un placer {{client().gender | i18nSelect:invitationMap}} a nuestro evento.</p>
+    <p>Saludos {{ client().name }}, es un placer {{ client().gender | i18nSelect:invitationMap }} a nuestro evento.</p>
     <button
       (click)="changeClient()"
       class="btn btn-primary">
@@ -17,7 +17,7 @@
   </app-card>
 
   <app-card title="i18nPluralPipe">
-    <p>Actualmente {{clients().length | i18nPlural:clientsMap()}}</p>
+    <p>Actualmente {{ clients().length | i18nPlural:clientsMap() }}</p>
     <button
       (click)="deleteClient()"
       [disabled]="clients().length === 0"
@@ -28,47 +28,47 @@
 
   <app-card title="SlicelPipe">
     <p><strong>Original:</strong></p>
-    <p class="text-primary">{{clients().join(', ')}}</p>
+    <p class="text-primary">{{ clients().join(', ') }}</p>
 
     <p class="mt-2"><strong>Slice:0:2</strong></p>
-    <p class="text-primary">{{clients() | slice:0:2}}</p>
+    <p class="text-primary">{{ clients() | slice:0:2 }}</p>
 
     <p class="mt-2"><strong>Slice:1:2</strong></p>
-    <p class="text-primary">{{clients() | slice:1:2}}</p>
+    <p class="text-primary">{{ clients() | slice:1:2 }}</p>
 
     <p class="mt-2"><strong>Slice:1:3</strong></p>
-    <p class="text-primary">{{clients() | slice:1:3}}</p>
+    <p class="text-primary">{{ clients() | slice:1:3 }}</p>
 
     <p class="mt-2"><strong>Slice:3:4</strong></p>
-    <p class="text-primary">{{clients() | slice:3:4}}</p>
+    <p class="text-primary">{{ clients() | slice:3:4 }}</p>
 
     <p class="mt-2"><strong>Slice:0:-3</strong></p>
-    <p class="text-primary">{{clients() | slice:0:-3}}</p>
+    <p class="text-primary">{{ clients() | slice:0:-3 }}</p>
   </app-card>
 
   <app-card title="JsonPipe">
-    <pre class="text-primary">{{clients() | json}}</pre>
-    <pre class="text-primary">{{client() | json}}</pre>
-    <p class="text-primary">{{clients().join(', ') | json | uppercase}}</p>
+    <pre class="text-primary">{{ clients() | json }}</pre>
+    <pre class="text-primary">{{ client() | json }}</pre>
+    <p class="text-primary">{{ clients().join(', ') | json | uppercase }}</p>
   </app-card>
 
   <app-card title="KeyValuePipe">
-    <!-- <pre>{{profile | keyvalue | json}}</pre> -->
+    <!-- <pre>{{ profile | keyvalue | json }}</pre> -->
      <ul>
       @for(item of profile | keyvalue; track $index) {
         <li>
-          <strong class="text-primary">{{item.key | titlecase}}: </strong>
-          <span>{{item.value}}</span>
+          <strong class="text-primary">{{ item.key | titlecase }}: </strong>
+          <span>{{ item.value }}</span>
         </li>
       }
      </ul>
   </app-card>
 
   <app-card title="AsyncPipe">
-    <p>{{promiseValue | async}}</p>
-    
+    <p>{{ promiseValue | async }}</p>
+
     @if(promiseValue | async; as value) {
-      <p class="text-primary">{{value}}</p>
+      <p class="text-primary">{{ value }}</p>
     } @else {
       <p class="text-accent">Cargando...</p>
     }
@@ -76,10 +76,10 @@
     <div class="divider"></div>
 
     <h3 class="text-lg">Observable</h3>
-    <p>{{myObservableTimer | async}}</p>
-    
+    <p>{{ myObservableTimer | async }}</p>
+
     @if(myObservableTimer | async; as value) {
-      <p>valor: {{value}}</p>
+      <p>valor: {{ value }}</p>
     } @else {
       <p class="text-accent">Esperando primer valor</p>
     }

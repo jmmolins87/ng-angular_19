@@ -4,20 +4,20 @@
   <div class="stats shadow">
     <div class="stat place-items-center">
       <div class="stat-title">País</div>
-      <div class="stat-value">{{country().name}}</div>
-      <div class="stat-desc">{{country().flag}}</div>
+      <div class="stat-value">{{ country().name }}</div>
+      <div class="stat-desc">{{ country().flag }}</div>
     </div>
-  
+
     <div class="stat place-items-center">
       <div class="stat-title">Población</div>
-      <div class="stat-value text-secondary">{{country().population | number}}</div>
-      <div class="stat-desc text-secondary">Desde {{currentYear()}}</div>
+      <div class="stat-value text-secondary">{{ country().population | number }}</div>
+      <div class="stat-desc text-secondary">Desde {{ currentYear() }}</div>
     </div>
-  
+
     <div class="stat place-items-center">
       <div class="stat-title">Sub Region</div>
-      <div class="stat-value">{{country().subRegion}}</div>
-      <div class="stat-desc">{{country().region}}</div>
+      <div class="stat-value">{{ country().subRegion }}</div>
+      <div class="stat-desc">{{ country().region }}</div>
     </div>
   </div>
 </section>
@@ -25,14 +25,14 @@
 <section class="mt-10">
   <figure class="diff aspect-16/9" tabindex="0">
     <div class="diff-item-1" role="img">
-      <img 
-        [src]="country().flagSvg" 
+      <img
+        [src]="country().flagSvg"
         [alt]="country().name"
         [title]="country().name" />
     </div>
     <div class="diff-item-2" role="img" tabindex="0">
-      <img 
-        [src]="country().flagSvg" 
+      <img
+        [src]="country().flagSvg"
         [alt]="country().name"
         [title]="country().name"
         class="blur brightness-75" />

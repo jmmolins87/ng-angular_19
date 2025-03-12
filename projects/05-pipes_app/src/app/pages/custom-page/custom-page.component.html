@@ -1,1 +1,106 @@
-<p>custom-page works!</p>
+<section class="mx-10">
+  <h1 class="text-2xl font-bold">Pipes Personalizados</h1>
+  <h2 class="text-xl font-thin">Pipes no incluidos en Angular</h2>
+</section>
+
+
+<section class="stats shadow">
+  <div class="stat">
+    <div class="stat-title">ToggleCase Pipe</div>
+    <div class="stat-value">{{ name() | toggleCase:upper() }}</div>
+    <div class="stat-desc">{{ name() }}</div>
+    <button 
+      (click)="upper.set(!upper())" 
+      class="btn btn-outline btn-primary mt-2">
+      Toggle Case
+    </button>
+  </div>
+</section>
+
+<div class="divider my-2"></div>
+
+<section class="flex align-middle justify-between py-2">
+  <h3 class="text-2xl font-bold w-full">
+    @if(searchQuery()) {
+      <span>Filtrando por: {{ searchQuery() }}</span>
+    }
+    Ordenando por: {{ sortBy() }}</h3>
+  <div class="flex gap-2 justify-end w-full">
+    <input 
+      #txtSearch
+      (input)="searchQuery.set(txtSearch.value)"
+      type="text" 
+      placeholder="Filtrar por nombre"
+      class="input input-boder w-full max-w-xs">
+    <button 
+      (click)="sortBy.set('name')" 
+      class="btn btn-outline btn-primary">
+      Por nombre
+    </button>
+    <button 
+      (click)="sortBy.set('canFly')" 
+      class="btn btn-outline btn-accent">
+      Puede volar
+    </button>
+    <button 
+      (click)="sortBy.set('color')" 
+      class="btn btn-outline btn-secondary">
+      Por color
+    </button>
+    <button 
+      (click)="sortBy.set('creator')" 
+      class="btn btn-outline btn-info">
+      Por creador
+    </button>
+  </div>
+</section>
+
+<section class="overflow-x-auto w-full">
+  <table class="table w-full">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Puede volar</th>
+        <th>Color</th>
+        <th>Creador</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(hero of heroes() | heroFilter:searchQuery() | heroSortBy:sortBy(); track hero.id; let i = $index) {
+        <tr>
+          <td>
+            {{ hero.id }}
+          </td>
+          <td>
+            {{ hero.name }}
+          </td>
+          <td>
+            <span
+              class="w-44"
+              [class.text-success]="hero.canFly"
+              [class.text-error]="!hero.canFly" >
+              {{ hero.canFly | canFly }}
+            </span>
+          </td>
+          <td>
+            <span
+              class="w-44 "
+              [style.color]="hero.color | heroTextColor">
+              {{ hero.color | heroColor | titlecase }}
+            </span>
+          </td>
+          <td>
+            <span 
+              class="w-44 "
+              [class.text-error]="hero.creator === 0"
+              [class.text-info]="hero.creator === 1" >
+              {{ hero.creator | heroCreator }}
+            </span>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</section>
