@@ -8,6 +8,7 @@ import { CountryPageComponent } from './pages/country-page/country-page.componen
 export const countryRoutes: Routes = [
   {
     path: '',
+    title: 'Países',
     component: CountryPageComponent
   }
 ]
