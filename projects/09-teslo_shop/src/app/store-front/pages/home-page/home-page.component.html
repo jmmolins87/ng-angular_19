@@ -1,0 +1,21 @@
+
+
+
+
+<section class="mt-5">
+  <h1 class="text-3xl text-secondary font-montserrat">Todos los Productos</h1>
+  <h2 class="text-xl">Para todos los gustos</h2>
+</section>
+
+<section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 mt-3">
+
+  @for(product of productsResource.value()?.products; track $index) {
+
+    <product-card [product]="product" />
+  }
+  @empty {
+    <div class="col-span-1 sm:col-span-2 md:col-span-3 xl:col-span-4">
+      <p class="text-center text-gray-500">No hay productos disponibles</p>
+    </div>
+  }
+</section>

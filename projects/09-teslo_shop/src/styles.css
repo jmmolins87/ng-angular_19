@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: night --default;
+}
+
+
+
+/* ** Globals ** */
+/* ? Fonts */
+@layer base {
+  @font-face {
+    font-family: "Montserrat";
+    src: url(/assets/fonts/montserrat_alternates/montserrat_alternates_medium.ttf) format("truetype");
+  }
+}
+
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* ? Animations */
+@import 'animate.css';
